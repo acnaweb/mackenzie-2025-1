@@ -8,11 +8,8 @@ LAYOUT_LANDSCAPE()
 Person(user, "Usuário")
 
 System_Boundary(olap, "OLAP") {
-
         Container(ia, "ML/IA", "Tensor Flow/Sklearning", "")
 }
 
-
-Rel(external_db, extraction, "Coletar dados")
 
 @enduml

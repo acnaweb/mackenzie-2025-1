@@ -1,0 +1,28 @@
+@startuml
+title Data Pipeline
+footer Disponível em https://github.com/acnaweb/mackenzie-2025-1
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+LAYOUT_LANDSCAPE()
+
+Person(user, "Usuário")
+
+System_Boundary(oltp, "OLTP"){
+    Container(frontend, "Frontend", "Angular", "Web App de interação")
+    Container(api, "API", "Java")
+    ContainerDb(db, "Database", "Oracle")
+}
+
+System_Boundary(olap, "OLAP"){
+    Container(job, "Ingestão de Dados")
+    ContainerDb(dw, "DataWarehouse", "BigQuery/Snowflake/Redshitf/Exadata")
+    Rel(job, dw, "Salvar dados da origem")
+}
+
+Rel(user, frontend, "Realizar pedidos")
+Rel(frontend, api, "Consumir endpoints")
+Rel(api, db, "Persistir dados")
+Rel(db, job, "Carregar dados da origem")
+
+@enduml
