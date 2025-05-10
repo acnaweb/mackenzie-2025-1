@@ -6,61 +6,13 @@ footer Disponível em: https://github.com/acnaweb/mackenzie
 LAYOUT_LANDSCAPE()
 
 Person(user, "Usuário")
-Person(data_scientist, "Cientista de Dados")
 
 System_Boundary(olap, "OLAP") {
 
-    System_Boundary(ml, "Machine Learning") {
         Container(ia, "ML/IA", "Tensor Flow/Sklearning", "")
-    }
-
-    System_Boundary(dataviz, "Data Visualization") {
-        Container(dash, "Dashboard", "Qlik, Power BI", "Tool for dashboard")
-    }
-
-    System_Boundary(analytics, "Data Analytics") {
-        ContainerDb(silver, "Trusted (silver)", "Cloud Storage/(Parquet/Avro)")
-        Container(transformation_bronze_silver, "Transformation", "dbt", "Padronização e limpeza")
-        
-        ContainerDb(gold, "Data Warehouse (gold)", "Bigquery/Snowflake/Redshift")
-        Container(transformation_silver_gold, "Transformation", "dbt", "Padronização e limpeza")
-    }
-
-    System_Boundary(ingestion, "Data Ingestion (EL)") {
-        ContainerDb(bronze, "Raw (bronze)", "Cloud Storage")
-        Container(extraction, "Extraction", "airbyte", "Extração e carga de dados")
-    }
 }
 
-System_Boundary(oltp, "OLTP") {
-    ContainerDb(external_db, "External databases", "SAP, Totvs")
-    ContainerQueue(external_queue, "Data Stream", "Kafka, RabitMQ")
-    Container(external_api, "APIs")
-    ContainerDb(external_storage, "External storage", "GDrive, Dropbox")
-}
 
 Rel(external_db, extraction, "Coletar dados")
-Rel(external_queue, extraction, "Coletar dados")
-Rel(external_api, extraction, "Coletar dados")
-Rel(external_storage, extraction, "Coletar dados")
-Rel(extraction, bronze, "Persistir dados")
-
-Rel(oltp, olap, "Fornecer dados")
-Rel(ingestion, analytics, "Atualizar dados")
-
-Rel(bronze, transformation_bronze_silver, "Coletar dados")
-Rel(transformation_bronze_silver, silver, "Persistir dados transformados")
-
-Rel(silver, transformation_silver_gold, "Coletar dados")
-Rel(transformation_silver_gold, gold, "Persistir dados transformados")
-
-Rel(user, dash, "Visualizar")
-Rel(dash, gold, "Carregar dados")
-Rel(dash, silver, "Carregar dados")
-
-
-Rel(data_scientist, ia, "Criar algoritmos de machine learning")
-Rel(ia, gold, "Carregar dataset para treinamento")
-Rel(ia, silver, "Carregar dataset para treinamento")
 
 @enduml
