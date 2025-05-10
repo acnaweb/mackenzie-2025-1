@@ -25,12 +25,20 @@ MBA em DevOps Engineering and Cloud Solutions
 - Soluções
 - Implementação da solução
 
-## Data Pipeline
+## Conceitos
 
+### Data Pipeline
 
 ![](https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2019/12/12/ETLandELTRedshift1.png)
+
 - https://aws.amazon.com/pt/compare/the-difference-between-etl-and-elt/
 
+### Eventos
+
+![](https://cdn.prod.website-files.com/6475df10614983200b234b6b/66c72c0d833fd8bf5c89dd80_64aee0a3fd46d7427c44b22b_62d9634beaaed1510c28ceeb_comms_diagramas-blog-mensageria_julho_2022-02.png)
+- https://www.sensedia.com.br/post/o-que-e-mensageria-tudo-o-que-voce-precisa-saber
+
+## Tools
 
 ### Install PlantUML Ubuntu/Code Space
 
