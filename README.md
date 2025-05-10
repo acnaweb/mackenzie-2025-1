@@ -88,6 +88,8 @@ pip3 install pydot graphviz
 
 ### IaC (Docker)
 
+- https://github.com/acnaweb/iac
+
 ```
 docker build -t devops .
 docker run --name devops -it --rm -v ./infra:/shared devops /bin/bash
@@ -158,12 +160,9 @@ Get-ChildItem env:
 - https://docs.getdbt.com/docs/build/custom-schemas
 - https://www.databricks.com/glossary/medallion-architecture
 - https://rivery.io/data-learning-center/types-of-etl-data-transformation/
-- https://github.com/plantuml-stdlib/C4-PlantUML
-- https://c4model.com/
 - https://dataengineering.wiki/Index
 - https://learn.microsoft.com/pt-br/power-bi/guidance/star-schema
 - https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/books/data-warehouse-dw-toolkit/
-- https://github.com/acnaweb/iac
 - https://realpython.com/
 
 
