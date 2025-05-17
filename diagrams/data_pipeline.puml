@@ -1,9 +1,10 @@
-@startuml
+@startuml diagram
 title Data Pipeline
 footer Disponível em https://github.com/acnaweb/mackenzie-2025-1
 
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
 LAYOUT_LANDSCAPE()
 
 Person(user, "Usuário")
