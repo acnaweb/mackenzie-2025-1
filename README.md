@@ -82,7 +82,7 @@ Rel_R(api, db, "Reads/Writes")
 
 ```sh
 sudo apt update
-sudo apt install graphviz
+sudo apt install -y graphviz
 pip3 install pydot graphviz
 ```
 
