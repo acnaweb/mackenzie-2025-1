@@ -22,7 +22,7 @@ System_Boundary(data_sources, "Fontes De Dados Externas"){
     ContainerDb(erp, "ERP", "db2", "SAP/Protheus")
     ContainerQueue(iot, "Sensores", "Armazem de distribuição")
     Container(scraping, "Web Scraping")
-    Container(pdf, "PDFs")
+    ContainerDb(pdf, "PDFs")
 }
 System_Boundary(olap, "OLAP"){
     Container(extraction, "Ingestão de Dados")
