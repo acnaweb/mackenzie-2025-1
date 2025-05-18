@@ -1,7 +1,5 @@
 # Mackenzie
 
-
-
 MBA em DevOps Engineering and Cloud Solutions
 
 ## Pessoas
@@ -29,11 +27,13 @@ MBA em DevOps Engineering and Cloud Solutions
 
 ## Conceitos
 
-### Data Pipeline
-
-![](https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2019/12/12/ETLandELTRedshift1.png)
+### Data Pipeline (em desenvolvimento)
 
 ![](out/diagrams/data_pipeline/diagram.png)
+
+### ETL x ELT
+
+![](https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2019/12/12/ETLandELTRedshift1.png)
 
 - https://aws.amazon.com/pt/compare/the-difference-between-etl-and-elt/
 
