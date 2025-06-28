@@ -5,7 +5,7 @@ footer Disponível em https://github.com/acnaweb/mackenzie-2025-1
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-LAYOUT_LANDSCAPE()
+
 
 Person(user, "Usuário")
 Person(user_business, "Usuário de Negócios")
@@ -26,18 +26,25 @@ System_Boundary(data_sources, "Fontes De Dados Externas"){
 }
 System_Boundary(olap, "OLAP"){
     Container(extraction, "Ingestão de Dados")
-    ContainerDb(object_storage, "S3/Blob/GCS/Minio", "Object Storage")
-    ContainerDb(dw, "DataWarehouse", "BigQuery/Snowflake/Redshitf/Exadata")
     Container(transformation, "Transformação de Dados")
+    Container(load, "Carga de Dados")
 
-    Rel(extraction, dw, "Salvar dados da origem")
+    ContainerDb(object_storage, "Object Storage", "S3/Blob/GCS/Minio")
+    ContainerDb(raw, "Bronze", "BigQuery/Snowflake/Redshitf/Exadata")
+    ContainerDb(silver, "Silver", "BigQuery/Snowflake/Redshitf/Exadata")
+    ContainerDb(dw, "Gold", "BigQuery/Snowflake/Redshitf/Exadata")
+
+    Rel(extraction, raw, "Salvar dados da origem")
+    Rel(raw, transformation, "Transformar dados da RAW")
+    Rel(transformation, silver, "Salver dados transformados")
+
+    Rel(silver, load, "Carregar dados da SILVER")
+    Rel(load, dw, "Salvar dados da raw")
     Rel(extraction, object_storage, "Salvar arquivos")
-    Rel(dw, transformation, "Transformar dados")
-    Rel(object_storage, transformation, "Transformar dados")
 }
 
 System_Boundary(analytics, "Analytics"){
-    Container(dataviz, "PowerBI/Tableu", "Data Viz")
+    Container(dataviz, "Data Viz", "PowerBI/Tableu")
     Container(ml, "Machine Learning", "Predições/Segmentações")
 }
 
