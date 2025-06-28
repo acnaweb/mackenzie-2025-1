@@ -1,0 +1,12 @@
+study_dbt:
+  outputs:
+    dev:
+      dbname: postgres
+      host: localhost
+      pass: my_pwd
+      port: 5432
+      schema: public
+      threads: 1
+      type: postgres
+      user: new_user
+  target: dev
