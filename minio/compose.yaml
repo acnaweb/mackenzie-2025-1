@@ -1,21 +1,25 @@
-version: "3.8"
-
-services:  
+services:
   minio:
-    restart: always 
     image: quay.io/minio/minio
-    volumes:
-      - object_data:/data
+    container_name: minio
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "9000:9000"    # API S3
+      - "9001:9001"    # Console Web
     environment:
-      - MINIO_ROOT_USER=admin
-      - MINIO_ROOT_PASSWORD=password
-
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: miniopwd
     command: server /data --console-address ":9001"
+    volumes:
+      - minio-data:/data
 
+  mc:
+    image: minio/mc
+    container_name: minio-client
+    depends_on:
+      - minio
+    entrypoint: /bin/sh
+    stdin_open: true
+    tty: true
 
 volumes:
-  object_data:
-    driver: local
+  minio-data:
