@@ -1,0 +1,6 @@
+id,nome,uf,tipo_cliente,limite_credito,data_cadastro
+1,Marta,SP,V,-1,
+2,Pelé,RJ,A,5300,03/05/24
+3,Maradona,MG,C,,03/05/2024
+4,Messi,MG,,18300
+5,Raí,SR,V,,
