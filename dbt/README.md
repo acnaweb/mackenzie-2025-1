@@ -17,9 +17,10 @@ make profiles
 
 ```
 
-dbname (default database that dbt will build objects in): postgres
-schema (default schema that dbt will build objects in): public
+- dbname (default database that dbt will build objects in): postgres
+- schema (default schema that dbt will build objects in): public
 
+```sh
 export DBT_PROFILE_DIR=$(pwd)/profiles
 dbt init study_dbt --profiles-dir=$DBT_PROFILE_DIR
 export DBT_PROJECT_DIR=$(pwd)/study_dbt
@@ -30,3 +31,4 @@ dbt compile --profiles-dir=$DBT_PROFILE_DIR
 
 dbt docs generate --profiles-dir=$DBT_PROFILE_DIR
 dbt docs serve --profiles-dir=$DBT_PROFILE_DIR
+```
